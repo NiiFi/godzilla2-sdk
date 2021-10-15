@@ -1,1 +1,1 @@
-# godzilla2-sdk
+# NiiFi SDK
