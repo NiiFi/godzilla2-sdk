@@ -162,10 +162,14 @@ describe('Pair', () => {
   })
   describe('#involvesToken', () => {
     expect(
-      new Pair(CurrencyAmount.fromRawAmount(KNII, '100'), CurrencyAmount.fromRawAmount(NEURO, '100')).involvesToken(KNII)
+      new Pair(CurrencyAmount.fromRawAmount(KNII, '100'), CurrencyAmount.fromRawAmount(NEURO, '100')).involvesToken(
+        KNII
+      )
     ).toEqual(true)
     expect(
-      new Pair(CurrencyAmount.fromRawAmount(KNII, '100'), CurrencyAmount.fromRawAmount(NEURO, '100')).involvesToken(NEURO)
+      new Pair(CurrencyAmount.fromRawAmount(KNII, '100'), CurrencyAmount.fromRawAmount(NEURO, '100')).involvesToken(
+        NEURO
+      )
     ).toEqual(true)
     expect(
       new Pair(CurrencyAmount.fromRawAmount(KNII, '100'), CurrencyAmount.fromRawAmount(NEURO, '100')).involvesToken(
