@@ -32,8 +32,7 @@
     "tiny-warning": "^1.0.3",
     "tsdx": "^0.14.1"
   },
-  "devDependencies": {    
-  },
+  "devDependencies": {},
   "engines": {
     "node": ">=10"
   },
