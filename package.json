@@ -1,12 +1,12 @@
 {
   "name": "@niifi/godzilla2-sdk",
   "license": "MIT",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "An SDK for building applications on top of NiiFi",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
-    "dist/index.js"
+    "dist"
   ],
   "repository": "https://github.com/NiiFi/godzilla2-sdk.git",
   "publishConfig": {
