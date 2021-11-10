@@ -10,7 +10,7 @@
   ],
   "repository": "https://github.com/NiiFi/godzilla2-sdk.git",
   "publishConfig": {
-    "registry":"https://npm.pkg.github.com"
+    "@niifi:registry":"https://npm.pkg.github.com"
   },
   "keywords": [
     "niifi",
