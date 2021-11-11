@@ -1,7 +1,7 @@
 {
   "name": "@niifi/godzilla2-sdk",
   "license": "MIT",
-  "version": "0.0.11",
+  "version": "0.0.14",
   "description": "An SDK for building applications on top of NiiFi",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -9,9 +9,6 @@
     "dist"
   ],
   "repository": "https://github.com/NiiFi/godzilla2-sdk.git",
-  "publishConfig": {
-    "@niifi:registry": "https://npm.pkg.github.com"
-  },
   "keywords": [
     "niifi",
     "ethereum"
