@@ -9,9 +9,6 @@
     "dist"
   ],
   "repository": "https://github.com/NiiFi/godzilla2-sdk.git",
-  "publishConfig": {
-    "@niifi:registry": "https://npm.pkg.github.com"
-  },
   "keywords": [
     "niifi",
     "ethereum"
