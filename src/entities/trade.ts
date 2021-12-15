@@ -1,11 +1,4 @@
-import {
-  Token,
-  Currency,
-  CurrencyAmount,
-  Fraction,
-  Percent,
-  Price
-} from '../core'
+import { Token, Currency, CurrencyAmount, Fraction, Percent, Price } from '../core'
 import { ONE, ZERO, TradeType } from '../constants'
 import { computePriceImpact, sortedInsert } from '../utils'
 import invariant from 'tiny-invariant'
