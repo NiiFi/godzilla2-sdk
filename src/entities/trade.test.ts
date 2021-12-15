@@ -2,7 +2,8 @@ import { Pair } from './pair'
 import { Route } from './route'
 import { Trade } from './trade'
 import JSBI from 'jsbi'
-import { Ether, CurrencyAmount, Percent, Token, TradeType, WETH9, Price } from '@uniswap/sdk-core'
+import { Ether, CurrencyAmount, Percent, Token, WETH9, Price } from '../core'
+import { TradeType } from '../constants'
 
 describe('Trade', () => {
   const ETHER = Ether.onChain(1)
