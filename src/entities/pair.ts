@@ -36,19 +36,26 @@ export const computePairAddress = ({
 }
 export class Pair {
   public readonly liquidityToken: Token
+  private readonly factoryAddress: string
   private readonly tokenAmounts: [CurrencyAmount<Token>, CurrencyAmount<Token>]
 
   public static getAddress(tokenA: Token, tokenB: Token): string {
     return computePairAddress({ factoryAddress: FACTORY_ADDRESS, tokenA, tokenB })
   }
 
-  public constructor(currencyAmountA: CurrencyAmount<Token>, tokenAmountB: CurrencyAmount<Token>) {
+  public getPairAddress(tokenA: Token, tokenB: Token): string {
+    return computePairAddress({ factoryAddress: this.factoryAddress, tokenA, tokenB })
+  }
+
+  public constructor(currencyAmountA: CurrencyAmount<Token>, tokenAmountB: CurrencyAmount<Token>, factoryAddress?: string) {
+    this.factoryAddress = factoryAddress ?? FACTORY_ADDRESS
+
     const tokenAmounts = currencyAmountA.currency.sortsBefore(tokenAmountB.currency) // does safety checks
       ? [currencyAmountA, tokenAmountB]
       : [tokenAmountB, currencyAmountA]
     this.liquidityToken = new Token(
       tokenAmounts[0].currency.chainId,
-      Pair.getAddress(tokenAmounts[0].currency, tokenAmounts[1].currency),
+      this.getPairAddress(tokenAmounts[0].currency, tokenAmounts[1].currency),
       18,
       'NIIFI-V1',
       'NiiFi V1'
@@ -134,7 +141,7 @@ export class Pair {
     if (JSBI.equal(outputAmount.quotient, ZERO)) {
       throw new InsufficientInputAmountError()
     }
-    return [outputAmount, new Pair(inputReserve.add(inputAmount), outputReserve.subtract(outputAmount))]
+    return [outputAmount, new Pair(inputReserve.add(inputAmount), outputReserve.subtract(outputAmount), this.factoryAddress)]
   }
 
   public getInputAmount(outputAmount: CurrencyAmount<Token>): [CurrencyAmount<Token>, Pair] {
@@ -155,7 +162,7 @@ export class Pair {
       outputAmount.currency.equals(this.token0) ? this.token1 : this.token0,
       JSBI.add(JSBI.divide(numerator, denominator), ONE)
     )
-    return [inputAmount, new Pair(inputReserve.add(inputAmount), outputReserve.subtract(outputAmount))]
+    return [inputAmount, new Pair(inputReserve.add(inputAmount), outputReserve.subtract(outputAmount), this.factoryAddress)]
   }
 
   public getLiquidityMinted(
