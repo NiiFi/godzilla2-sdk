@@ -1,7 +1,7 @@
-export {};
+export {}
 
 declare global {
   interface Window {
-    __RUNTIME_CONFIG__: any; // 👈️ turn off type checking
+    __RUNTIME_CONFIG__: any // 👈️ turn off type checking
   }
 }
